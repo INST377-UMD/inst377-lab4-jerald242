@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INST377 - Lab 4 Jerald</title>
+    <style>
+        body {
+            font-family: :'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+        header {
+            text-align: center;
+        }
+        section {
+            border: 2px solid red;
+            padding: 8px;
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>INST377 - Lab 4 Jerald D.</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Alert Me Section</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <button onclick="alertName()">Alert Me</button>
+        </section>
+
+        <section>
+            <h2>Change Color Section</h2>
+            <button onclick="changeColor()">Change Color</button>
+        </section>
+
+        <section>
+            <h2>Text Tester Section</h2>
+            <label for="text-input">Enter Text:</label>
+            <input type="text" id="text-input">
+            <button onclick="validateText()">Validate Text</button>
+        </section>
+
+        <section>
+            <h2>Add Text Section</h2>
+            <button onclick="addText()">Add Text</button>
+        </section>
+    </main>
+
+    <script type="text/javascript">
+        function alertName() {
+            const name = document.getElementById('name').value;
+            if (name) alert(`Hi ${name}!`);
+        }
+
+        let isBlue = true;
+        function changeColor() {
+            document.body.style.backgroundColor = isBlue ? 'green' : 'blue';
+            isBlue = !isBlue;
+        }
+
+        function validateText() {
+            const text = document.getElementById('text-input').value;
+            const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(text);
+            alert(hasSpecialChars ? 'Text contains special characters!' : 'Text is valid.');
+        }
+
+        function addText() {
+            document.querySelector('header h1').textContent += ' Add Text';
+        }
+    </script>
+</body>
+</html>
